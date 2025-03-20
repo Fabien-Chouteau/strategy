@@ -1,0 +1,12 @@
+name = 'strategy_tests'
+description = ''
+version = '0.0.0-test'
+
+[[depends-on]]
+strategy = '*'
+
+[[pins]]
+strategy = { path = '..' }
+
+[build-profiles]
+strategy = 'validation'
