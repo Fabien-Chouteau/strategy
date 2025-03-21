@@ -23,12 +23,8 @@ package body Strategy.Vectors is
               RNG.Random
                 (Gen, Count_Type (Min_Length), Count_Type (Max_Length));
 
-            Result.Inputs.Set_Length (Len);
-            Result.Current.Set_Length (Len);
-
-            for Idx in Result.Inputs.First_Index .. Result.Inputs.Last_Index
-            loop
-               Result.Inputs (Idx) := Element_Strat.Create (Ctx);
+            for Cnt in 1 .. Len loop
+               Result.Inputs.Append (Element_Strat.Create (Ctx));
             end loop;
             return Result;
          end Create;

@@ -25,13 +25,14 @@ package Strategy.Vectors is
 
       private
 
-         package Element_Node_Vector is new Ada.Containers.Indefinite_Vectors
-           (Output_Vector.Index_Type, Element_Strat.Node, Element_Strat."=");
+         package Element_Node_Vector
+         is new Ada.Containers.Indefinite_Vectors
+           (Output_Vector.Index_Type,
+            Element_Strat.Node,
+            Element_Strat."=");
 
          type Node is new Value_Tree.Value_Node with record
             Inputs : Element_Node_Vector.Vector;
-
-            Current : Output_Vector.Vector;
 
             Shrinker : Output_Vector.Index_Type :=
               Output_Vector.Index_Type'First;
