@@ -1,6 +1,6 @@
 # Strategy
 
-A property-based testing framework for Ada.
+This is a property-based testing framework for Ada, similar to QuickCheck (Haskell) or Hypothesis (Python).
 
 ## Overview
 
