@@ -11,3 +11,6 @@ tags = ["test", "property", "testing"]
 
 [configuration.variables]
 Enable_Oneof = { type = "Boolean", default = false }
+
+[[test]]
+runner = 'alire'
