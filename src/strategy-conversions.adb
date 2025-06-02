@@ -10,7 +10,7 @@ package body Strategy.Conversions is
          overriding function Simplify (This : in out Node) return Boolean is
            (Reference (This.Input).Simplify);
          overriding function Complicate (This : in out Node) return Boolean is
-           (Reference (This.Input).Simplify);
+           (Reference (This.Input).Complicate);
       end Impl;
    end Def_Convert;
 
@@ -24,7 +24,7 @@ package body Strategy.Conversions is
          overriding function Simplify (This : in out Node) return Boolean is
            (Reference (This.Input).Simplify);
          overriding function Complicate (This : in out Node) return Boolean is
-           (Reference (This.Input).Simplify);
+           (Reference (This.Input).Complicate);
       end Impl;
    end Indef_Convert;
 
@@ -38,7 +38,7 @@ package body Strategy.Conversions is
          overriding function Simplify (This : in out Node) return Boolean is
            (Reference (This.Input).Simplify);
          overriding function Complicate (This : in out Node) return Boolean is
-           (Reference (This.Input).Simplify);
+           (Reference (This.Input).Complicate);
       end Impl;
    end Def_Indef_Convert;
 
@@ -52,7 +52,7 @@ package body Strategy.Conversions is
          overriding function Simplify (This : in out Node) return Boolean is
            (Reference (This.Input).Simplify);
          overriding function Complicate (This : in out Node) return Boolean is
-           (Reference (This.Input).Simplify);
+           (Reference (This.Input).Complicate);
       end Impl;
    end Indef_Def_Convert;
 
