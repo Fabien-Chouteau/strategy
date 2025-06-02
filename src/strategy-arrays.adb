@@ -39,16 +39,17 @@ package body Strategy.Arrays is
 
          overriding function Simplify (This : in out Node) return Boolean is
          begin
-            while This.Shrinker < Index_Type'Last loop
+            loop
                if Input_Node_Holders.Reference (This.States (This.Shrinker))
                    .Simplify
                then
                   This.Last_Shrinker       := This.Shrinker;
                   This.Valid_Last_Shrinker := True;
                   return True;
-               else
-                  This.Shrinker := Index_Type'Succ (This.Shrinker);
                end if;
+
+               exit when This.Shrinker = Index_Type'Last;
+               This.Shrinker := Index_Type'Succ (This.Shrinker);
             end loop;
 
             return False;
