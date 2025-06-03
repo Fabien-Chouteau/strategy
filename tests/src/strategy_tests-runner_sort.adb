@@ -38,7 +38,7 @@ procedure Strategy_Tests.Runner_Sort is
    function Test_Sort (Arr : My_Array) return Boolean is
       Copy : My_Array := Arr;
    begin
-      if not (for some Elt of Arr => Elt >= 200) then
+      if not (for some Elt of Arr => Elt >= 1) then
          Sort (Copy);
       end if;
       return Check_Sorted (Copy);
@@ -49,13 +49,22 @@ procedure Strategy_Tests.Runner_Sort is
 
    Result : Sort_Runner.Run_Result := Sort_Runner.Run (Natural'Last);
 
+   Count_Zeroes : Natural := 0;
 begin
    case Result.Outcome is
       when Runners.Pass =>
          raise Program_Error with "Counld not find failing input...";
       when Runners.Fail =>
          Put_Line (Result.Input.all'Img);
-         Assert (for some E of Result.Input.all => E = 200);
+
+         for Elt of Result.Input.all loop
+            if Elt = 0 then
+               Count_Zeroes := @ + 1;
+            end if;
+         end loop;
+
+         Assert (Count_Zeroes = Result.Input.all'Length - 1);
+
          Sort_Runner.Free (Result.Input);
    end case;
 end Strategy_Tests.Runner_Sort;
