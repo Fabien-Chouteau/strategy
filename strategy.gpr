@@ -6,11 +6,6 @@ project Strategy is
 
    Source_Dirs := ("src/", "config/");
 
-   case Strategy_Config.Enable_Oneof is
-      when "True" => Source_Dirs := Source_Dirs & ("src/one_of/");
-      when others => null;
-   end case;
-
    for Source_Dirs use Source_Dirs;
    for Object_Dir use "obj/" & Strategy_Config.Build_Profile;
    for Create_Missing_Dirs use "True";

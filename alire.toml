@@ -9,8 +9,8 @@ licenses = "MIT OR Apache-2.0 WITH LLVM-exception"
 website = ""
 tags = ["test", "property", "testing"]
 
-[configuration.variables]
-Enable_Oneof = { type = "Boolean", default = false }
+[[depends-on]]
+gnat = ">=15"
 
 [[test]]
 runner = 'alire'
