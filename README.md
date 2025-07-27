@@ -23,7 +23,7 @@ Note: The test runner requires Alire nightly build.
 ## Example
 
 ```ada
--- Instead of testing specific values like assert(add(2, 3) = 5)
+-- Instead of testing specific values like assert(add(2, 3) = add(3, 2))
 -- You test properties like "addition is commutative"
 for all A, B in Integer => add(A, B) = add(B, A)
 ```
