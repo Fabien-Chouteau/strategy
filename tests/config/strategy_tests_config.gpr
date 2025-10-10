@@ -1,0 +1,7 @@
+abstract project Strategy_Tests_Config is
+
+   Build_Profile := External ("STRATEGY_TESTS_BUILD_PROFILE", "validation");
+
+   Ada_Compiler_Switches := ();
+
+end Strategy_Tests_Config;

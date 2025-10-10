@@ -1,0 +1,17 @@
+abstract project Strategy_Tests_List_Config is
+
+   Test_Mains := (
+   "strategy_tests-arrays",
+   "strategy_tests-conversion",
+   "strategy_tests-demystifying_monads",
+   "strategy_tests-enum_strats",
+   "strategy_tests-indef_arrays",
+   "strategy_tests-modular_strats",
+   "strategy_tests-one_of_strats",
+   "strategy_tests-runner_definite_sort",
+   "strategy_tests-runner_sort",
+   "strategy_tests-tuple_strats",
+   "strategy_tests-just_one_of"
+   );
+
+end Strategy_Tests_List_Config;

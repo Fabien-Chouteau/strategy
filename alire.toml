@@ -12,5 +12,7 @@ tags = ["test", "property", "testing"]
 [[depends-on]]
 gnat = ">=15"
 
-[[test]]
-runner = 'alire'
+[[actions]]
+type = "test"
+command = ["bash", "-lc", "./run_tests.sh"]
+directory = "tests"
