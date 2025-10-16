@@ -22,9 +22,24 @@ procedure Strategy_Tests.Runner_Definite_Sort is
    is new Strategy.Arrays.Definite_Array_Strat
      (Unsigned_8, Arr_Range, My_Array, My_Array_VT, Unsigned_8_Strat.Strat);
 
-   procedure Sort
-   is new Ada.Containers.Generic_Constrained_Array_Sort
-     (Arr_Range, Unsigned_8, My_Array);
+   procedure Bubble_Sort (List : in out My_Array) is
+   begin
+      for I in reverse List'First + 1 .. List'Last loop
+         for J in List'First .. I - 1 loop
+            if List (J) > List (J + 1) then
+
+               if List (J) mod 2 = 0 then
+                  declare
+                     Tmp : constant Unsigned_8 := List (J);
+                  begin
+                     List (J) := List (J + 1);
+                     List (J + 1) := Tmp;
+                  end;
+               end if;
+            end if;
+         end loop;
+      end loop;
+   end Bubble_Sort;
 
    function Check_Sorted (Arr : My_Array) return Boolean is
    begin
@@ -39,9 +54,7 @@ procedure Strategy_Tests.Runner_Definite_Sort is
    function Test_Sort (Arr : My_Array) return Boolean is
       Copy : My_Array := Arr;
    begin
-      if not (for some Elt of Arr => Elt >= 1) then
-         Sort (Copy);
-      end if;
+      Bubble_Sort (Copy);
       return Check_Sorted (Copy);
    end Test_Sort;
 
@@ -60,6 +73,8 @@ begin
          for Elt of Result.Input loop
             if Elt = 0 then
                Count_Zeroes := @ + 1;
+            else
+               Assert (Elt mod 2 = 1);
             end if;
          end loop;
 

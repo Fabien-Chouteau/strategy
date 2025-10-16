@@ -53,10 +53,10 @@ begin
 
          Put_Line ("Org: " &  Org'Img);
          if Org mod 10 = 1 then
-            Assert (T3.Impl.Simplify (VT));
+            Assert (VT.Simplify);
             Put_Line ("Simplify: " &  T3.Impl.Current (VT)'Img);
             Assert (T3.Impl.Current (VT) mod 10 = 0);
-            Assert (T3.Impl.Complicate (VT));
+            Assert (VT.Complicate);
             Put_Line ("Complicate: " &  T3.Impl.Current (VT)'Img);
             Assert (T3.Impl.Current (VT) mod 10 = 1);
             Check_Simplify_Once := True;
