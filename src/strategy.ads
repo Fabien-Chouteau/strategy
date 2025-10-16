@@ -2,7 +2,7 @@ pragma Ada_2022;
 
 package Strategy is
 
-   type Node is abstract tagged null record;
+   type Node is interface;
    --  Base type for value tree nodes. Instantiate the "Definite_Value_Tree"
    --  and "Indefinite_Value_Tree" package to define specialized Node base type
    --  for a given return type. Then implement a type that derives from this
@@ -34,14 +34,12 @@ package Strategy is
    package Definite_Value_Tree is
       --  Defines an abstact value tree node for the given definite type
 
-      type Value_Node is abstract new Node with private;
+      type Value_Node is interface and Node;
 
       function Current (This : in out Value_Node) return Value is abstract;
       --  Return the current value of the value tree node. The returned value
       --  should stay the same until Simplify() and Complicate() are called.
 
-   private
-      type Value_Node is abstract new Node with null record;
    end Definite_Value_Tree;
 
    generic
@@ -49,14 +47,11 @@ package Strategy is
    package Indefinite_Value_Tree is
       --  Defines an abstact value tree node for the given indefinite type
 
-      type Value_Node is abstract new Node with private;
+      type Value_Node is interface and Node;
 
       function Current (This : in out Value_Node) return Value is abstract;
       --  Return the current value of the value tree node. The returned value
       --  should stay the same until Simplify() and Complicate() are called.
-
-   private
-      type Value_Node is abstract new Node with null record;
    end Indefinite_Value_Tree;
 
    type Runner_Context is limited interface;
